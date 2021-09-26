@@ -1,0 +1,136 @@
+/* ダークモード対応 */
+:root {
+  --main-text: #333;
+  --main-background: #fcfcfc;
+  --shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  --link: #00e;
+  --hover: #e00;
+  --theme-color: #ee195e;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-text: #ccc;
+    --main-background: #333;
+    --shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    --link: #ff1;
+    --hover: #1ff;
+  }
+}
+
+/* 全体 */
+body {
+  font-family: sans-serif;
+  margin: 10px;
+  color: var(--main-text);
+  background-color: var(--main-background);
+}
+a {
+  text-decoration: none;
+  color: var(--link);
+}
+a:hover {
+  text-decoration: underline;
+  color: var(--hover);
+}
+table, th, td {
+  border: 1px solid var(--main-text);
+  border-collapse: collapse;
+}
+
+/* 条件入力 */
+.input_number {
+  cursor: pointer;
+  font-size: 16px;
+  margin: 3px 5px 3px 5px;
+  padding: 3px 5px;
+  font-weight: bold;
+  text-align-last: right;
+  color: var(--main-text);
+  background-color: var(--main-background);
+  border: solid 1px var(--theme-color);
+  border-radius: 5px;
+}
+.input_number:hover {
+  box-shadow: var(--shadow);
+}
+.input_select {
+  cursor: pointer;
+  font-size: 16px;
+  margin: 3px 5px 3px 5px;
+  padding: 3px 5px;
+  font-weight: bold;
+  color: var(--main-text);
+  background-color: var(--main-background);
+  border: solid 1px var(--theme-color);
+  border-radius: 5px;
+}
+.input_select:hover {
+  box-shadow: var(--shadow);
+}
+.button_blend {
+  cursor: pointer;
+  font-size: 16px;
+  margin: 3px 1px 3px 1px;
+  padding: 3px 10px;
+  color: var(--theme-color);
+  background: #fcfcfc;
+  border: solid 2px var(--theme-color);
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+.button_blend:hover {
+  color: #fcfcfc;
+  background: var(--theme-color);
+  box-shadow: var(--shadow);
+}
+
+/* 結果出力 */
+.input_color {
+  cursor: pointer;
+  font-size: 16px;
+  margin: 3px 5px 3px 5px;
+  padding: 3px 5px;
+  color: var(--main-text);
+  background-color: var(--main-background);
+  border: solid 1px var(--theme-color);
+  border-radius: 5px;
+}
+.input_color:hover {
+  box-shadow: var(--shadow);
+}
+#canvas {
+  width: 200px;
+  height: 150px;
+  background-color: #fff;
+}
+
+/* モード説明 */
+#mode {
+  width: 100%;
+  margin: 5px 1px 5px 1px;
+}
+.table_mode {
+  width: 100%;
+  margin: 5px 1px 5px 1px;
+  font-size: 16px;
+}
+.table_mode th {
+  padding: 1px 5px;
+  text-align: left;
+  color: #ee195e;
+}
+.table_mode td {
+  padding: 1px 5px;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 600px) {
+  /* スマートフォン */
+  .table_mode th, td {
+    width: 100%;
+    display: block;
+  }
+  table, th, td {
+    border: none;
+  }
+}

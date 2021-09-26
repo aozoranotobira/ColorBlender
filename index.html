@@ -1,0 +1,113 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+  <meta name="description" content="Mix two rgba colors and see the result.">
+  <title>Color Blender</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="shortcut icon" href="favicon.ico">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+</head>
+
+<body>
+  Ｒ<select class="input_number" id="red1_number"></select>
+  Ｇ<select class="input_number" id="green1_number"></select>
+  Ｂ<select class="input_number" id="blue1_number"></select>
+  α <select class="input_number" id="alpha1_number"></select>
+  <br />
+  Ｒ<select class="input_number" id="red2_number"></select>
+  Ｇ<select class="input_number" id="green2_number"></select>
+  Ｂ<select class="input_number" id="blue2_number"></select>
+  α <select class="input_number" id="alpha2_number"></select>
+  <br />
+  Blend Mode<select class="input_select" id="mode_select"></select>
+  <button type="button" class="button_blend" id="blend_button">Blend!</button>
+  <br />
+  Blend Color<input type="text" class="input_color" id="blend_color" readonly />
+  <div id="canvas"></div>
+  <div id="mode">
+    <b>blendMode()</b><br />
+    Blends the pixels in the display window according to the defined mode.<br />
+    There is a choice of the following modes to blend the source pixels (A) with the ones of pixels already in the display window (B):
+    <table class="table_mode">
+      <tr>
+        <th>BLEND</th>
+        <td>linear interpolation of colours: C = A*factor + B. This is the default blending mode.</td>
+      </tr>
+      <tr>
+        <th>ADD</th>
+        <td>sum of A and B</td>
+      </tr>
+      <tr>
+        <th>DARKEST</th>
+        <td>only the darkest colour succeeds: C = min(A*factor, B).</td>
+      </tr>
+      <tr>
+        <th>LIGHTEST</th>
+        <td>only the lightest colour succeeds: C = max(A*factor, B).</td>
+      </tr>
+      <tr>
+        <th>DIFFERENCE</th>
+        <td>subtract colors from underlying image.</td>
+      </tr>
+      <tr>
+        <th>EXCLUSION</th>
+        <td>similar to DIFFERENCE, but less extreme.</td>
+      </tr>
+      <tr>
+        <th>MULTIPLY</th>
+        <td>multiply the colors, result will always be darker.</td>
+      </tr>
+      <tr>
+        <th>SCREEN</th>
+        <td>opposite multiply, uses inverse values of the colors.</td>
+      </tr>
+      <tr>
+        <th>REPLACE</th>
+        <td>the pixels entirely replace the others and don't utilize alpha (transparency) values.</td>
+      </tr>
+      <tr>
+        <th>REMOVE</th>
+        <td>removes pixels from B with the alpha strength of A.</td>
+      </tr>
+      <tr>
+        <th>OVERLAY</th>
+        <td>mix of MULTIPLY and SCREEN . Multiplies dark values, and screens light values. (2D)</td>
+      </tr>
+      <tr>
+        <th>HARD_LIGHT</th>
+        <td>SCREEN when greater than 50% gray, MULTIPLY when lower. (2D)</td>
+      </tr>
+      <tr>
+        <th>SOFT_LIGHT</th>
+        <td>mix of DARKEST and LIGHTEST. Works like OVERLAY, but not as harsh. (2D)</td>
+      </tr>
+      <tr>
+        <th>DODGE</th>
+        <td>lightens light tones and increases contrast, ignores darks. (2D)</td>
+      </tr>
+      <tr>
+        <th>BURN</th>
+        <td>darker areas are applied, increasing contrast, ignores lights. (2D)</td>
+      </tr>
+      <tr>
+        <th>SUBTRACT</th>
+        <td>remainder of A and B (3D)</td>
+      </tr>
+    </table>
+    (2D) indicates that this blend mode only works in the 2D renderer.<br />
+    (3D) indicates that this blend mode only works in the WEBGL renderer.<br />
+    <a href="https://p5js.org/reference/#/p5/blendMode" target="_blank" rel="noopener noreferrer">Reference - blendMode()</a>
+  </div>
+</body>
+
+</html>
